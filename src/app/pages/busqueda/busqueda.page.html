@@ -1,0 +1,44 @@
+<ion-header>
+        <ion-toolbar color="secondary">
+    
+          <ion-buttons slot="start"  *ngIf= "!isSearchOpended">
+              <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+    
+          <ion-title *ngIf= "!isSearchOpended">
+            Busqueda
+        </ion-title>
+
+        <ion-searchbar *ngIf= "isSearchOpended" animated color="light" animated showCancelButton="always" (ionChange)="onSearch($event)" buscar=true (ionCancel)="isSearchOpended=false">
+        </ion-searchbar>
+        <ion-buttons slot="end">
+            <ion-icon size="large" *ngIf="!isSearchOpended" (click) = "isSearchOpended=true" name="search" class="icono"></ion-icon>
+        </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+
+      <ion-content  fullscreen>
+          <ion-list>
+              <ion-list-header>
+                  Buscar:
+                  </ion-list-header>
+            <ion-item *ngFor="let todo of todos | filtro:texto " lines="inset" (click) ="openModal(todo)">
+              <ion-thumbnail slot="start">
+                <img src= {{todo.portada}}>
+              </ion-thumbnail>
+              <ion-label>
+              <h3>
+              {{ todo.task }}
+              </h3>
+              <p>
+                {{todo.sub_task}}
+              </p>
+            </ion-label>
+        
+              <ion-note slot="end" color="danger">
+                <ion-icon name="eye"></ion-icon>{{ todo.prioridad }}
+              </ion-note>
+            </ion-item>
+          </ion-list>
+        </ion-content>

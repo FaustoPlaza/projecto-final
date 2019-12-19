@@ -1,0 +1,62 @@
+<ion-header>
+	<ion-toolbar color="primary">
+
+      <ion-buttons slot="start">
+          <ion-menu-button ></ion-menu-button>
+        </ion-buttons>
+
+	  <ion-title *ngIf="!todos">
+      Crear Post
+    </ion-title>
+
+	  <ion-title *ngIf="todos">
+      Diseñar Post
+    </ion-title>
+
+
+	</ion-toolbar>
+  </ion-header>
+
+
+   <ion-content padding >
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+      <app-ngx-editor [placeholder]="" [spellcheck]="true" [(ngModel)]="todo.bloque_html">
+        
+      </app-ngx-editor>
+
+      <ion-list lines="full">
+          <ng-container *ngIf="!todos || todos.length == 0">
+
+              <ion-item *ngIf="todo">
+                  <ion-label position="stacked">Titulo:</ion-label>
+                  <ion-input *ngIf="todoId" disabled  required type="text" placeholder="" [(ngModel)]="todo.task"></ion-input>
+                  <ion-input *ngIf="!todoId"  required type="text" placeholder="" [(ngModel)]="todo.task"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="todo">
+                    <ion-label position="stacked" >Sub Titulo:</ion-label>
+                    <ion-input *ngIf="todoId" disabled required type="text" placeholder="" [(ngModel)]="todo.sub_task"></ion-input>
+                    <ion-input *ngIf="!todoId" required type="text" placeholder="" [(ngModel)]="todo.sub_task"></ion-input>
+                  </ion-item>
+    
+                  <ion-item >
+                    <ion-label position="stacked">Lista:</ion-label>
+                    <ion-select *ngIf="todoId" disabled  interface="action-sheet" (ionChange)="guardarLista($event)">
+                       <ion-select-option selected value="null">Seleccionar:</ion-select-option>
+                        <ion-select-option  *ngFor="let lista of listas"  value = "{{lista.id}}, {{lista.titulo}}, {{lista.titulo_org}} " >{{lista.titulo}} : {{lista.genero}}</ion-select-option>
+                      </ion-select>
+
+                      <ion-select *ngIf="!todoId" interface="action-sheet" (ionChange)="guardarLista($event)">
+                        <ion-select-option selected value="null" >Seleccionar:</ion-select-option>
+                        <ion-select-option  *ngFor="let lista of listas"  value = "{{lista.id}}, {{lista.titulo}}, {{lista.titulo_org}} " >{{lista.titulo}} : {{lista.genero}}</ion-select-option>
+                      </ion-select>
+
+                  </ion-item>   
+        </ng-container> 
+     </ion-list>
+    <ion-button  *ngIf="todoId" expand="short"  color="success"  (click)="saveTodo()"  horizontal="end" vertical="bottom"> Editar </ion-button>
+    <ion-button  *ngIf="!todoId" expand="short"  color="success" (click)="MakeTodo()" horizontal="end" vertical="bottom"> Crear </ion-button>
+    <ion-button *ngIf="todoId"  expand="short"  color="danger"  (click)="alertEliminarTodo()" horizontal="end" vertical="bottom"> Borrar </ion-button>
+   </ion-content>

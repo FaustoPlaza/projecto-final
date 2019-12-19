@@ -1,0 +1,89 @@
+
+<ion-menu contentId="content" side="start" type="reveal" class="mi-menu">
+
+  <div color = "secondary">
+
+      <ion-header>
+          <ion-toolbar color="secondary">
+            <ion-title  >Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+  <div class="buttom-menu" >
+      <img class="imagen" src="../../../assets/name_logo.png">
+  </div>
+</div>
+
+  <ion-content class="menu" >
+      <ion-list>
+          <ion-menu-toggle>
+              <ion-item class="menu-items"  lines="none" [routerLink]="page1.url" routerDirection="root" [class.active-item]="selectPath === page1.url"> <div class="titulos" style="width: 100%; text-align: center;">{{page1.title}}</div></ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+              <ion-item class="menu-items" lines="none" [routerLink]="page3.url" routerDirection="root" [class.active-item]="selectPath === page3.url"><div class="titulos" style="width: 100%; text-align: center;">{{page3.title}}</div></ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+              <ion-item class="menu-items" lines="none"  [routerLink]="page5.url" routerDirection="root" [class.active-item]="selectPath === page5.url"><div class="titulos" style="width: 100%; text-align: center;">{{page5.title}}</div></ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+              <ion-item class="menu-items" lines="none" [routerLink]="page2.url" routerDirection="root" [class.active-item]="selectPath === page2.url"><div class="titulos" style="width: 100%; text-align: center;">{{page2.title}}</div></ion-item>
+          </ion-menu-toggle>
+      </ion-list>
+      
+        
+
+  </ion-content>
+
+
+  <ion-item  position="bottom">
+    <ion-avatar *ngIf="user" slot="start">
+            <img class="fondo" src="{{user.photoURL}}">
+    </ion-avatar>
+
+  <ion-label *ngIf="user" >{{user.displayName}} ({{user.email}}) </ion-label>
+  <ion-menu-toggle *ngIf="!user">
+    <ion-label  class="menu-items" lines="none"[routerLink]="page6.url" routerDirection="root" [class.active-item]="selectPath === page6.url" ><div class="titulos" style="width: 100%; text-align: left;">Conectarse</div></ion-label>
+  </ion-menu-toggle>
+  
+
+</ion-item>
+
+
+
+<div *ngIf="!user"  position="bottom"> 
+  
+  
+</div>
+  
+
+</ion-menu> 
+   
+<ion-router-outlet id="content" main>
+  
+<ion-tabs>
+    <ion-tab-bar slot="bottom">
+      
+      <ion-tab-button tab="first">
+      <ion-icon name="alarm"></ion-icon>
+        <ion-label>Ultimos</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="busqueda">
+        <ion-icon name="compass"></ion-icon>
+        <ion-label>Descubrir</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="second">
+        <ion-icon name="albums"></ion-icon>
+        <ion-label>Mi Biblioteca</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="configs">
+        <ion-icon name="settings"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+  
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-router-outlet>
+

@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+      <ion-title> Ver de Cuenta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content slot ="start" *ngIf ="!userSecion" padding class="background" color  ="secondary">
+     
+    
+    <ion-card *ngIf ="user">
+      <ion-card-header color = "medium">
+          Ver Detalles de Cuenta
+
+      </ion-card-header>
+          
+   
+      <ion-card-content >
+        <ion-list lines="full" class="ion-no-margin ion-no-padding" >
+          <ion-item>
+                <div  style="width: 100%; text-align: center; padding-bottom: 1ch; padding-top: 3ch; ">
+                  <img style="border-radius: 50%;" class="image" src= {{user.photoURL}}>
+                </div>
+          </ion-item>
+            <ion-item>
+                <ion-label>Nombre Visible:</ion-label>
+                <ion-badge slot="end"><div class="titulos" style="width: 100%; text-align: left;">{{user.displayName}}</div></ion-badge>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Numero de Telefono:</ion-label>
+                <ion-badge  slot="end"><div class="titulos" style="width: 100%; text-align: left;">{{user.phoneNumber}}</div></ion-badge>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>email:</ion-label>
+                <ion-badge  slot="end"><div class="titulos" style="width: 100%; text-align: left;">{{user.email}}</div></ion-badge>
+            </ion-item>
+          
+          <ion-item color = "danger">
+            <h3>Informacion tomadas de la cuenta de Email</h3>
+            
+        </ion-item>
+
+        </ion-list>
+        <ion-button slot="end" ion-button block outline color="light"  (click)="onLogout()">Desconectarse</ion-button>
+      </ion-card-content>
+      
+    </ion-card>
+
+  </ion-content>

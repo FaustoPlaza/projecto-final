@@ -1,0 +1,34 @@
+<ion-content fullscreen>
+<ion-card>
+    <ion-card-header>
+      <ion-card-title>{{todo.task}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    {{todo.sub_task}}
+    
+     <img src={{todo.portada}} />
+     
+     <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{todo.user_info_photo}} ">
+        </ion-avatar>
+        <ion-label>{{todo.user_info}} </ion-label>
+      </ion-item>
+  <ion-item>
+    <ion-icon name="eye"></ion-icon>
+    
+      <h4 style="padding-left: 1ch;" color="medium">
+           {{todo.prioridad }}
+      </h4>
+
+</ion-item>
+
+
+<ion-item>
+    <ion-button size="large" slot="start"  color="success" (click)="closePopOver()" [routerLink]="['/menu/details', todo.id]"> <div style="width: 100%; text-align: center; padding-left: 1ch; padding-right: 1ch;">leer</div></ion-button>
+    <ion-button size="large" slot="end"  color="danger" (click)="closePopOver()"> <div style="width: 100%; text-align: center;">Cerrar</div></ion-button>
+</ion-item>
+
+</ion-card-content>
+    </ion-card>
+</ion-content>

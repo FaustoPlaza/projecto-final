@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+  
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+  
+      <ion-title>
+         {{todo.task}}
+      </ion-title>
+      <title>{{todo.task}}</title>
+    </ion-toolbar>
+    </ion-header>
+
+    <ion-content padding >
+      <!--
+        <div [innerHTML]="todo.task"></div>
+        <div [innerHTML]="todo.sub_task"></div>
+        -->
+        <h1>{{todo.task}}</h1>
+        <h3>{{todo.sub_task}}</h3>
+        <div [innerHTML]="todo.bloque_html"></div>
+        
+        <!--
+        <ion-fab vertical="bottom" *ngIf ="like" horizontal="end" slot="fixed">
+          <ion-fab-button color="success" (click)="like = false" (click)="darlike()">
+            <ion-icon name="heart"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+
+        <ion-fab vertical="bottom" *ngIf ="!like" horizontal="end" slot="fixed">
+          <ion-fab-button color="danger" (click)="like = true" (click)="darlike()">
+            <ion-icon name="heart-dislike"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        -->
+
+<ion-item button color="primary" [routerLink]="['/menu/first']" > <div style="width: 100%; text-align: center;">Volver</div></ion-item>
+    </ion-content>
+

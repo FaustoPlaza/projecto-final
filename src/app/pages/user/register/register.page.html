@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+      <ion-title>Register</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content *ngIf ="!userSecion" padding class="background" color ="secondary">
+    
+    <ion-card>
+      <ion-card-header color = "medium">
+        Registrarse
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list no-line>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="user.email" placeholder="Mail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" [(ngModel)]="user.password" placeholder="Password"></ion-input>
+          </ion-item>
+          <a>¿Olvidaste algo?</a>
+          <ion-button ion-button class="bottom" style="padding: 1ch;" ion-button clear full color="light"   (click)="onRegister()">Registrarse</ion-button>
+          
+           <!--
+                <p>OR</p>
+                 
+          <button ion-button block color="facebook">
+            <ion-icon name="logo-facebook"></ion-icon> Login with facebook
+                  </button>
+                  -->
+                  
+        </ion-list>
+      </ion-card-content>
+      
+    </ion-card>
+    
+    <ion-button ion-button class="bottom" style="padding: 1ch;" ion-button clear full color="light"  [routerLink]="['/menu/login']">¿Ya tienes cuenta? Inicia Secion </ion-button>
+  </ion-content>
+
+<!-- 
+<ion-content>
+
+  <ion-item>
+    <ion-label>
+      Email:
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>
+        Contraseña:
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>
+       Nombre:
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Nombre de Usuario:
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.nombre_user"></ion-input>
+    </ion-item>
+
+    <div class="botones">
+        <section>
+            <ion-button expand="full" size="large" color="success" (click)="onRegister()">Registrarse </ion-button>
+        </section>
+      </div>
+        <section>
+            <ion-button size="small" color="tertiary" href="/menu/login" >Ya tengo una cuenta</ion-button>
+        </section>
+</ion-content>
+-->

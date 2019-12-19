@@ -1,0 +1,38 @@
+<ion-header >
+  <ion-toolbar color="medium">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+    <ion-title>Recuperar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content *ngIf ="!userSecion"  padding class="background">
+      <img src="../../../../assets/name_logo.png">
+    
+    <ion-card>
+      <ion-card-header color = "medium">
+        Recuperar Contraseña
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list no-line>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="mail" placeholder="Mail"></ion-input>
+          </ion-item>   
+          <ion-item>
+            <ion-button ion-button block outline color="success"  (click)="enviar()">Mandar Email</ion-button>
+          </ion-item>
+      
+        </ion-list>
+        <ion-button block outline class="bottom" style="padding: 1ch;" ion-button clear full color="danger" [routerLink]="['/menu/login']">Volver a el Login </ion-button>
+      </ion-card-content>
+      
+    </ion-card>
+    
+    <ion-button ion-button class="bottom" style="padding: 1ch;" ion-button clear full color="light"   [routerLink]="['/menu/register']">¿No tienes cuenta? Registrate!!!</ion-button>
+    
+  </ion-content>
+
+
+

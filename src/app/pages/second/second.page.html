@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="medium">
+
+    <ion-buttons slot="start" >
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      Mi Biblioteca
+  </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+  <ion-list>
+
+      <ion-list-header>
+					Ultimas adiciones:
+          </ion-list-header>
+          
+      <ng-container *ngIf="!todos || todos.length == 0">
+          <div *ngFor="let n of [0,1,2]" padding>
+            <ion-skeleton-text></ion-skeleton-text>
+            <p>
+            <ion-skeleton-text class="text-skeleton"></ion-skeleton-text>
+            </p>
+          </div>
+          </ng-container>
+        
+      
+      
+      
+          <ion-item-sliding *ngFor="let todo of todos | biblioteca : user" >
+
+
+          <ion-item lines="inset" button [routerLink]="['/menu/post-create', todo.id]">
+            <ion-thumbnail slot="start">
+              <img src= {{todo.portada}}>
+            </ion-thumbnail>
+            <ion-label>
+            <h3>
+            {{ todo.task }}
+            </h3>
+            <p>
+              {{todo.sub_task}}
+            </p>
+          </ion-label>
+      
+            <ion-note slot="end" color="danger">
+              <ion-icon name="star"></ion-icon>{{ todo.prioridad }}
+            </ion-note>
+          </ion-item>
+
+
+      
+          <ion-item-options side="end">
+            <ion-item-option (click)="remove(item)" color="secondary">
+            Check
+            <ion-icon name="checkmark" slot="end"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+          </ion-item-sliding>
+          
+        </ion-list>
+      
+      
+         <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button routerLink="/menu/post-create" routerDirection="forward">
+          <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      
+      
+      </ion-content>
